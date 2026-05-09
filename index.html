@@ -461,9 +461,15 @@
       border-radius: var(--radius-sm); padding: 12px 14px;
     }
     .transform__icon {
-      flex-shrink: 0; width: 32px; height: 32px;
-      background: var(--pink-bg); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+      flex-shrink: 0; width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .transform__icon::before {
+      content: '';
+      display: block; width: 8px; height: 8px;
+      background: var(--pink-md);
+      transform: rotate(45deg);
+      flex-shrink: 0;
     }
     .transform__text { font-size: 0.84rem; color: var(--ink); line-height: 1.7; font-weight: 500; }
     .transform__closing {
@@ -863,10 +869,10 @@
         <div class="pink-line pink-line--left"></div>
         <div class="coach__bio">
           <p>
-            横浜市在住。フルタイム会社員をしながら、小1男の子のママとして子育て中。新光証券（現：みずほ証券）を経て、損害保険ジャパン、総合商社 双日の子会社で法人営業を歴任。
+            横浜市在住。フルタイム会社員をしながら、小2男の子のママとして子育て中。新光証券（現：みずほ証券）を経て、損害保険ジャパン、総合商社 双日の子会社で法人営業を歴任。
           </p>
           <p>
-            2020年、コロナ禍に夫のシンガポール駐在に帯同。「職を失うか、ワンオペか」という状況から、<strong>自らコミュニティを立ち上げ部員135名</strong>に育て上げた経験が人生観を変え、ライフコーチの道へ。
+            2021年、夫のシンガポール駐在に帯同。「職を失うか、ワンオペか」という状況から、<strong>自らコミュニティを立ち上げ部員135名</strong>に育て上げた経験が人生観を変え、ライフコーチの道へ。
           </p>
           <p>
             <strong>約300万円の自己投資</strong>から学んだエッセンスをもとに、ICF国際コーチング連盟基準に準拠した脳科学・心理学ベースのコーチングを提供。「誠実で温かく、ズバッと気づきをくれる」と高い支持を得ている。
@@ -971,12 +977,12 @@
       </div>
       <h2 class="sec-heading" style="margin-bottom:6px;">コーチングを受けた後、<br>こんな未来が待っています</h2>
       <div class="transform__list">
-        <div class="transform__item"><div class="transform__icon">✨</div><p class="transform__text">自分に自信が持てて、人の目が気にならなくなる</p></div>
-        <div class="transform__item"><div class="transform__icon">🌿</div><p class="transform__text">感情の波が穏やかになり、揺れてもすぐ立て直せる</p></div>
-        <div class="transform__item"><div class="transform__icon">💛</div><p class="transform__text">夫・子どもとの関係が変わり、互いに応援し合える家族になる</p></div>
-        <div class="transform__item"><div class="transform__icon">🌱</div><p class="transform__text">「指示・管理」から「伴走」へ。子育てが変わる</p></div>
-        <div class="transform__item"><div class="transform__icon">🔥</div><p class="transform__text">やりたいことが見つかり、ワクワクして毎日が楽しくなる</p></div>
-        <div class="transform__item"><div class="transform__icon">🌸</div><p class="transform__text">子どもの非認知能力（生き抜く力）を育む関わり方ができる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">自分に自信が持てて、人の目が気にならなくなる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">感情の波が穏やかになり、揺れてもすぐ立て直せる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">夫・子どもとの関係が変わり、互いに応援し合える家族になる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">「指示・管理」から「伴走」へ。子育てが変わる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">やりたいことが見つかり、ワクワクして毎日が楽しくなる</p></div>
+        <div class="transform__item"><div class="transform__icon"></div><p class="transform__text">子どもの非認知能力（生き抜く力）を育む関わり方ができる</p></div>
       </div>
       <div class="transform__closing">
         <p>「この歳になってもまだまだ成長できる」<br>そう感じる日が、必ず来ます。</p>
@@ -1014,12 +1020,12 @@
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">「思考の引き出し」を増やしていただいているということ。自分だけで考えると浅い思考で止まっていたのが、<strong>コーチングを受けて具体的に先の計画を立て、意識して日常が送れるようになりました。</strong></p>
-        <div class="testimonial__author"><div class="testimonial__avatar">✨</div><div><p class="testimonial__name">宗 雪乃 さま</p><p class="testimonial__meta">30代 ／ 子育て中のママ</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar">✨</div><div><p class="testimonial__name">駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">「自分軸で考える力」が身につきました。今は自分の気持ちを素直に言葉にできます。千鶴コーチは<strong>「元気とパワーとポジティブマインドの塊」</strong>で、一緒にいると前向きになれます。</p>
-        <div class="testimonial__author"><div class="testimonial__avatar">🌟</div><div><p class="testimonial__name">藤原 彩乃 さま</p><p class="testimonial__meta">30代 ／ 子育て中のママ</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar">🌟</div><div><p class="testimonial__name">駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
     </div>
     <div class="testimonials__recommend">
