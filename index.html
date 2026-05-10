@@ -196,6 +196,15 @@
       .hero__sub { font-size: 1.0rem; }
     }
 
+    /* ---- 改行ユーティリティ ---- */
+    .sp-br { display: none; }
+    @media (max-width: 820px) {
+      .sp-br { display: block; height: 0; }
+      .pc-br { display: none; }
+      .hero__brand { display: none; }
+      p, h1, h2, h3, li { text-wrap: pretty; }
+    }
+
     /* ====================================================
        HELLO SECTION
     ==================================================== */
@@ -214,10 +223,10 @@
       position: relative; overflow: hidden;
     }
     @media (max-width: 820px) {
-      .hello__photo { height: 78vw; max-height: 480px; }
+      .hello__photo { height: 100vw; max-height: 560px; }
     }
     .hello__photo img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+      width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;
     }
     .hello__text {
       display: flex; flex-direction: column; justify-content: center;
@@ -379,11 +388,43 @@
       font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 50px;
     }
     .coach__story {
-      margin-top: 22px; padding: 20px 24px;
-      background: var(--white); border: 1.5px solid var(--pink-lt); border-radius: var(--radius-sm);
-      font-size: 0.84rem; color: var(--ink-md); line-height: 1.85;
+      margin-top: 28px;
+      background: linear-gradient(135deg, #fdf0f4 0%, #fef9fb 100%);
+      border: none;
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .coach__story strong { color: var(--ink); font-weight: 700; }
+    .coach__story::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--pink) 0%, var(--pink-md) 100%);
+      border-radius: 4px 0 0 4px;
+    }
+    .coach__story::after {
+      content: '❝';
+      position: absolute; top: 12px; right: 20px;
+      font-size: 3.5rem; line-height: 1;
+      color: var(--pink-lt);
+      font-family: Georgia, serif;
+    }
+    .coach__story-item {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 10px 0;
+    }
+    .coach__story-item + .coach__story-item {
+      border-top: 1px dashed var(--pink-lt);
+    }
+    .coach__story-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      color: var(--pink); text-transform: uppercase;
+    }
+    .coach__story-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.92rem; color: var(--ink); line-height: 1.8; font-weight: 500;
+    }
     /* gallery */
     .coach__gallery {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 48px;
@@ -498,10 +539,10 @@
     .testimonial__body strong { color: var(--ink); font-weight: 700; }
     .testimonial__author { display: flex; align-items: center; gap: 10px; }
     .testimonial__avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--pink-bg); border: 1.5px solid var(--pink-lt);
-      display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #FDE8EC; flex-shrink: 0; overflow: hidden;
     }
+    .testimonial__avatar svg { width: 100%; height: 100%; display: block; }
     .testimonial__name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
     .testimonial__meta { font-size: 0.72rem; color: var(--ink-lt); margin-top: 2px; }
     .testimonials__recommend {
@@ -721,11 +762,11 @@
   <div class="container hero__content">
     <p class="hero__brand">/ P Life-Coaching ／ Well-Being Coaching for Moms /</p>
     <h1 class="hero__headline">
-      ずっと、誰かのために<br>
+      ずっと、誰かのために<br class="pc-br">
       生きてきた、<em>あなた</em>へ。
     </h1>
     <p class="hero__sub">
-      イライラ・モヤモヤを手放して、<br>
+      イライラ・モヤモヤを手放して、<br class="pc-br">
       <em>自分らしく輝くわたし</em>へ——
     </p>
     <div class="hero__cta">
@@ -753,7 +794,7 @@
     <div class="hello__text">
       <p class="hello__greeting">Hello,</p>
       <h1 class="hello__name">林　千鶴です。</h1>
-      <p class="hello__role">ライフコーチ ／ Well-Beingスペシャリスト</p>
+      <p class="hello__role">ライフコーチ｜ママのWell-beingを叶える人</p>
       <div class="hello__divider"></div>
       <p class="hello__copy">
         毎日、誰かのために生きている。<br>
@@ -761,7 +802,7 @@
         いつ始まりますか？
       </p>
       <p class="hello__sub">
-        子どものため、夫のため、家族のため——全力で頑張っているのに、なぜかずっと<strong>満たされない、疲れてる、モヤモヤする。</strong><br><br>
+        子どものため、夫のため、家族のため——<br>全力で頑張っているのに<br>なぜかずっと<strong>満たされない、疲れてる、モヤモヤする。</strong><br><br>
         そのしんどさ、一人で抱えなくていいんです。<br>
         あなたの中にある答えを、一緒に見つけましょう。
       </p>
@@ -804,8 +845,8 @@
     </div>
     <div class="pain__closing">
       <p>
-        一つでも当てはまったなら——<br>
-        <strong>あなたに、このコーチングは必要かもしれません。</strong><br>
+        一つでも当てはまったなら——<br class="pc-br">
+        <strong>あなたに、このコーチングは必要かもしれません。</strong><br class="pc-br">
         そのしんどさには、ちゃんと理由がある。
       </p>
     </div>
@@ -864,29 +905,37 @@
         </div>
       </div>
       <div>
-        <p class="coach__title">ライフコーチ ／ Well-Beingスペシャリスト</p>
+        <p class="coach__title">ライフコーチ｜ママのWell-beingを叶える人</p>
         <h3 class="coach__name">林　千鶴（はやし ちづる）</h3>
         <div class="pink-line pink-line--left"></div>
         <div class="coach__bio">
           <p>
-            横浜市在住。フルタイム会社員をしながら、小2男の子のママとして子育て中。新光証券（現：みずほ証券）を経て、損害保険ジャパン、総合商社 双日の子会社で法人営業を歴任。
+            横浜市在住。フルタイム会社員をしながら、小2男の子のママとして子育て中。大学卒業後、新光証券（現みずほ証券）、損害保険ジャパン、総合商社双日の子会社で損保法人営業など、ずっと金融業界でキャリアを形成。
           </p>
           <p>
-            2021年、夫のシンガポール駐在に帯同。「職を失うか、ワンオペか」という状況から、<strong>自らコミュニティを立ち上げ部員135名</strong>に育て上げた経験が人生観を変え、ライフコーチの道へ。
+            2021年、夫のシンガポール駐在に帯同。夫は会社に、子供はローカル保育園に、私だけが行く場所も社会での役割もなく、自分が何者かわからなくなり、駐妻暗黒期にどっぷりとハマり人生のどん底を味わう。
           </p>
           <p>
-            <strong>約300万円の自己投資</strong>から学んだエッセンスをもとに、ICF国際コーチング連盟基準に準拠した脳科学・心理学ベースのコーチングを提供。「誠実で温かく、ズバッと気づきをくれる」と高い支持を得ている。
+            自分と向き合い続ける中で、２つのコミュニティを立ち上げ<strong>135名のコミュニティメンバーに貢献</strong>。メンバーの表情がより明るい笑顔になる瞬間に立ち会い貢献し続けたことで、自分自身が人の変化や成長に貢献することに大きな喜びを感じることを知り、ライフコーチの道へ。
+          </p>
+          <p>
+            ICF国際コーチング連盟基準に準拠した伝統的なコーチングと、脳科学・心理学をベースとしたコーチングを提供。「誠実で温かく、ズバッと気づきをくれる」とクライアントから高い支持を得ている。
           </p>
         </div>
         <div class="coach__tags">
-          <span class="coach__tag">銀座コーチングスクール GSC認定</span>
+          <span class="coach__tag">銀座コーチングスクール　GCS認定コーチ</span>
           <span class="coach__tag">ICF国際コーチング連盟 準拠</span>
-          <span class="coach__tag">脳科学・心理学ベース</span>
-          <span class="coach__tag">自己投資額 約300万円</span>
+          <span class="coach__tag">脳科学コーチング提供</span>
         </div>
         <div class="coach__story">
-          <strong>My Vision：</strong>「ご機嫌ママが子供の未来を輝かせる」<br>
-          <strong>My Mission：</strong>ママが自分を後回しにせず主体的に生き、子どもの「生き抜く力（非認知能力）」を育てる最高の教育者になる。
+          <div class="coach__story-item">
+            <span class="coach__story-label">My Vision</span>
+            <p class="coach__story-text">「ご機嫌ママが子供の未来を輝かせる」</p>
+          </div>
+          <div class="coach__story-item">
+            <span class="coach__story-label">My Mission</span>
+            <p class="coach__story-text">ママが自分を後回しにせず主体的に生き、子どもの「生き抜く力（非認知能力）」を育てる最高の教育者になれるよう、ママのWell-Beingを叶える</p>
+          </div>
         </div>
       </div>
     </div>
@@ -912,7 +961,7 @@
       <h2 class="sec-heading">「人生の輪」で、<br>あなたの理想を丸ごと描く</h2>
       <div class="pink-line"></div>
       <p class="concept__lead">
-        「バランスホイール（人生の輪）」を使えば、仕事・家族・健康・お金・自己実現——<br>
+        「バランスホイール（人生の輪）」を使えば、仕事・家族・健康・お金・自己実現——<br class="pc-br">
         人生のすべての領域を俯瞰し、<strong>あなただけの理想の人生</strong>を描くことができます。
       </p>
     </div>
@@ -1010,22 +1059,22 @@
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">ワクワクする未来に向けて思考する時間をくださるので、毎日が前向きになります。家族や子どものことだけでなく、<strong>自分のことを優先することへの罪悪感がなくなりました。</strong></p>
-        <div class="testimonial__author"><div class="testimonial__avatar">🌸</div><div><p class="testimonial__name">30代 ／ 子育て中のママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M0 60Q4 45 16 42Q22 40 30 40Q38 40 44 42Q56 45 60 60Z" fill="#D4789A"/><path d="M19 28Q19 13 30 13Q41 13 41 28Q40 19 30 18Q20 19 19 28Z" fill="#D4789A"/><path d="M19 26Q16 30 16 37Q17 40 19 40Q19 37 19 28Z" fill="#D4789A"/><path d="M41 26Q44 30 44 37Q43 40 41 40Q41 37 41 28Z" fill="#D4789A"/><ellipse cx="30" cy="27" rx="11" ry="12" fill="#FAD0DA"/><ellipse cx="21" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/><ellipse cx="39" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/></svg></div><div><p class="testimonial__name">30代 ／ 子育て中のママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">自分の価値観を知れたり、自分はまだ成長できると感じます。<strong>この歳からでもまだ意識を変えていけることが嬉しい。</strong>自分と向き合うコーチングの時間はとても貴重です。</p>
-        <div class="testimonial__author"><div class="testimonial__avatar">🌿</div><div><p class="testimonial__name">40代 ／ 2児のママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M0 60Q4 45 16 42Q22 40 30 40Q38 40 44 42Q56 45 60 60Z" fill="#D4789A"/><circle cx="30" cy="10" r="7" fill="#D4789A"/><path d="M20 29Q20 15 30 15Q40 15 40 29Q39 21 30 20Q21 21 20 29Z" fill="#D4789A"/><ellipse cx="30" cy="28" rx="11" ry="12" fill="#FAD0DA"/><ellipse cx="21" cy="31" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/><ellipse cx="39" cy="31" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/></svg></div><div><p class="testimonial__name">40代 ／ 2児のママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">「思考の引き出し」を増やしていただいているということ。自分だけで考えると浅い思考で止まっていたのが、<strong>コーチングを受けて具体的に先の計画を立て、意識して日常が送れるようになりました。</strong></p>
-        <div class="testimonial__author"><div class="testimonial__avatar">✨</div><div><p class="testimonial__name">駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M0 60Q4 45 16 42Q22 40 30 40Q38 40 44 42Q56 45 60 60Z" fill="#D4789A"/><path d="M21 28Q21 14 30 14Q40 14 40 23Q39 18 30 17Q21 18 21 28Z" fill="#D4789A"/><path d="M40 19Q51 14 53 24Q51 33 44 28Q42 23 40 19Z" fill="#D4789A"/><circle cx="42" cy="24" r="2.5" fill="#FAD0DA"/><ellipse cx="30" cy="27" rx="11" ry="12" fill="#FAD0DA"/><ellipse cx="21" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/><ellipse cx="39" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/></svg></div><div><p class="testimonial__name">30代 ／ 駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__body">「自分軸で考える力」が身につきました。今は自分の気持ちを素直に言葉にできます。千鶴コーチは<strong>「元気とパワーとポジティブマインドの塊」</strong>で、一緒にいると前向きになれます。</p>
-        <div class="testimonial__author"><div class="testimonial__avatar">🌟</div><div><p class="testimonial__name">駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
+        <div class="testimonial__author"><div class="testimonial__avatar"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M0 60Q4 45 16 42Q22 40 30 40Q38 40 44 42Q56 45 60 60Z" fill="#D4789A"/><path d="M19 27Q19 13 30 13Q41 13 41 27L43 48Q38 43 30 43Q22 43 17 48Z" fill="#D4789A"/><ellipse cx="30" cy="27" rx="11" ry="12" fill="#FAD0DA"/><ellipse cx="21" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/><ellipse cx="39" cy="30" rx="4" ry="2.5" fill="#F090B0" opacity="0.45"/></svg></div><div><p class="testimonial__name">40代 ／ 駐在妻ママ</p><p class="testimonial__meta">継続コーチング受講</p></div></div>
       </div>
     </div>
     <div class="testimonials__recommend">
@@ -1132,8 +1181,8 @@
       <em>今日</em>から始められる。
     </h2>
     <p class="final-cta__sub">
-      一人で抱えてきたしんどさを、話してみませんか。<br>
-      まず60分、あなたのためだけに使ってください。<br>
+      一人で抱えてきたしんどさを、話してみませんか。<br class="pc-br">
+      まず60分、あなたのためだけに使ってください。<br class="pc-br">
       答えは、すでにあなたの中にある。
     </p>
     <a href="https://lin.ee/uCitabI" class="btn-line" target="_blank" rel="noopener" style="font-size:1.05rem; padding:18px 48px;">
